@@ -1,0 +1,1 @@
+// script to handle on click event listeners
