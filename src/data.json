@@ -1,7 +1,7 @@
 [
     {
         "topic": "welcome message",
-        "keywords": ["welcome", "greeting", "introduction"],
+        "keywords": ["welcome", "greet", "hello"],
         "information": "Hello, welcome to James Cook University. Let's get you acquainted with our orientation process! How can I assist you today?"
     },
 
@@ -14,7 +14,7 @@
     {
         "topic": "date of orientation",
         "keywords": ["date","orientation","when"],
-        "information": "It is on Monday, 6th January to Friday, 17 January 2025."
+        "information": "Orientation is on Monday, 6th January to Friday, 17 January 2025."
     },
 
     {
