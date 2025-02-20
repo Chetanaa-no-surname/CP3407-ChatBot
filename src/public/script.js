@@ -14,6 +14,8 @@ async function sendMessage() {
 
     const parentDiv = document.getElementById('responseDiv');
     parentDiv.appendChild(newMesDiv);
+
+    messageInput.value = '';
     
     await fetch(`http://localhost:3000`, {
         method: 'POST',
@@ -29,8 +31,6 @@ async function sendMessage() {
             return res.json();
         })
         .then(data => {
-            messageInput.value = '';
-            
             const newResDiv = document.createElement('div');
             newResDiv.textContent = data.message;
 
