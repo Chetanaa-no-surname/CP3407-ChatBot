@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JCU Singapore - Authentic Conversations</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/static/style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
         function toggleSearch() {
@@ -34,7 +34,7 @@
     <header>
         <div class="top-nav">
             <div class="logo">
-                <img src="jcu-logo.png" alt="JCU Logo">
+                <img src="/static/images/jcu-logo.png" alt="JCU Logo">
             </div>
             <nav>
                 <ul>
@@ -78,7 +78,7 @@
     <div class="chatbox">
         <div class="chat-header">
             <div class="chat-logo">
-                <img src="jcu-logo.png" alt="JCU Logo">
+                <img src="/static/images/jcu-logo.png" alt="JCU Logo">
             </div>
             <span>Ask JCU</span>
             <button class="chat-toggle">↗</button>
@@ -100,19 +100,6 @@
     </footer>
 
 </body>
-
-<script>
-    document.addEventListener('scroll', () => {
-        const header = document.querySelector('header')
-        if (window.scrollY > 0) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-</script>
-
-
 
 
 <script>
