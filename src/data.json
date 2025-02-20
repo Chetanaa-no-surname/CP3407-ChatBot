@@ -14,30 +14,30 @@
     {
         "topic": "date of orientation",
         "keywords": ["date","orientation","when"],
-        "information": "It is on Monday, 6th January to Friday, 17 January 2025. JCU 101, DigiLearn Workshop and Academic advising will be carried out. \n Medical Check-up and Student pass formalities are carried out on a different day. \n Part-time students have a different schedule"
+        "information": "Orientation is on Monday 6th January to Friday, 17 January 2025. JCU 101, DigiLearn and Academic advising will be carried out. \n Medical Check-up and Student pass formalities are carried out on a different day. \n Part-time students have different accomodations."
     },
 
     {
         "topic": "medical Check-up",
         "keywords": ["medical","check-up","health","sick"],
-        "information": "*For international students only* \n It is adviced for students to arrive at least two weeks before start of classes.\n If you have already completed your medical check-up in your home country, kindly send over the report to stpformalities-singapore@cu.edu.au \n If you have not completed your medical-check up, please do so in Singapore and email the report to stpformalities-singapore@cu.edu.au.\n\n On the 6th & 7th of January, you are required to be present in campus for a document check, at your appointment time between 09:00 am to 03:00 pm (last registration at 02:00 pm).\n Location at Block C \n Bring your <b> Passport and IPA Letter </b>"
+        "information": "*For international students only* \n It is adviced for students to arrive at least two weeks before start of classes.\n If you have already completed your medical check-up in your home country, kindly send over the report to stpformalities-singapore@cu.edu.au \n If you have not completed your medical-check up, please do so in Singapore and email the report.\n\n On the 6th & 7th of January, you are required to be present in campus for a document check, at your appointment time between 09:00 am to 03:00 pm (last registration at 02:00 pm).\n Location at Block C \n Bring your <b> Passport and IPA Letter </b>"
     },
     {
         "topic": "student's pass formalities",
         "keywords": ["pass","card","id","ID"],
-        "information": "*For international students only* It is on the 6th & 7th of January, you are required to be present in campus for the document check, at your appointment time between 09:00 am to 03:00 pm (last registration at 02:00 pm).\n Location at Block C \n Bring your <b> Passport and IPA Letter </b> "
+        "information": "*For international students only* On the 6th & 7th of January, you are required to be present in campus for the document check, at your appointment time between 09:00 am to 03:00 pm (last registration at 02:00 pm).\n Location at Block C \n Bring your <b> Passport and IPA Letter </b> "
     },
 
     {
         "topic": "welcome speech and JCU 101",
         "keywords": ["JCU 101", "speech"],
-        "information": "It is on 16th January from 09:00am to 09:10am. Venue at Block C. Please be in Smart Casual (shorts and slippers are not permitted). The Welcome Speech will be by Deputy Vice-Chancellor and Acting Campus Dean & Head of Leaning, Teaching and Student Engagement. JCU 101 will be carried out after the speeches."
+        "information": "Welcome Speech and JCU101 is on 16th January from 09:00am to 09:10am. Venue at Block C. Please be in Smart Casual (shorts and slippers are not permitted). The Welcome Speech will be by Deputy Vice-Chancellor and Acting Campus Dean & Head of Leaning, Teaching and Student Engagement. JCU 101 will be carried out after the speeches."
     },
 
     {
         "topic": "digilearn workshop",
         "keywords": ["digilearn","workshop"],
-        "information": "On 16th January after JCU101, From 09:10am to 10:25am. Venue at Block C \n The DigiLearn workshop will ensure you get started with the virtual learning environment and online collaboration spaces at JCU. Please complete your JCU GetStarted before the workshop <a href='https://secure.jcu.edu.au/app/getstarted/'>here.</a> \n <b> DO NOT </b> use iPads or mobile phones, please use laptops or personal computers for this workshop."
+        "information": "Digilearn will be on 16th January after JCU101, From 09:10am to 10:25am. Venue at Block C \n The DigiLearn workshop will ensure you get started with the virtual learning environment and online collaboration spaces at JCU. Please complete your JCU GetStarted before the workshop <a href='https://secure.jcu.edu.au/app/getstarted/'>here.</a> \n <b> DO NOT </b> use iPads or mobile phones, please use laptops or personal computers for this workshop."
     },
 
     {
@@ -55,6 +55,26 @@
         "topic": "contact information",
         "keywords": ["phone","email","address","affairs","affair","admission","arrival","accommodation","alumni","career","advise"],
         "information": "James Cook University (Sims Drive Campus) Mailing Address \n 149 Sims Drive, Singapore 387380 \n T: +65 6709 3888 \n F: +65 6709 3889 \n Email: admissions-singapore@jcu.edu.au \n (Please address all email enquiries and mail to the Sims Drive Campus.) \n\n James Cook University (Beijing Representative Office) \n #2305 Block B, Winterless center, No.1 Xidawang Rd. Chaoyang District Beijing China 100026 \n T: +8610 5351 9266 \n\n Admissions, Arrival & Accommodation Services: Admissions\n Enquiries: admissions-singapore@jcu.edu.au \n Airport, Meet and Greet: meetandgreet-singapore@jcu.edu.au \n Accommodation Service: accommodation-singapore@jcu.edu.au \n\n Students Affairs Centre (For current students only): \n Email: studentaffairs-singapore@jcu.edu.au \n\n Alumni & Career Advisory Centre:\n Alumni Matters: alumni-singapore@jcu.edu.au\n Career Services: careers-singapore@jcu.edu.au"
+    },
+    {
+        "topic":"explore booths",
+        "keywords":["booths","explore","department"],
+        "information":"Booths will be set up on the 16th of January, Block E, 1:30pm to 3:oopm, where you can chat with JCU staff from various departments. Learn more about the wide range of support and opportunities JCU offers, academic support, career devlopment, student well-being and Life on campus! \n Partners from accommodations and telecommunication services will also be available offering student deals and promotions. \n *Welcome Bags and JCU t-shirts will be available for collection exclusively from 07 January to 20 Febuary. "
+    },
+    {
+        "topic":"network with lecturers and peers",
+        "keywords":["network","lecturers","peers"],
+        "information":"On the 16th of January, from 3:00pm to 5:00pm at the Multi-purpose hall. \n Interact with your lecturers and fellow students, Build connections with fauclty members and engage with peers. Afternoon tea will be provided. \n Parent's Lounge on campus will be available throughout the event days and are allowed to park on campus (limited slots)"
+    },
+    {
+        "topic":"student pass completion",
+        "keywords":["pass","formalities"],
+        "information":"*For international students only* \n Students are strongly adviced to arrive in Singapore two weeks before the start of the course to ensure all Student's Pass formalities are completed. \nStudents who arrive late might not be able to join their classes on time as appointment times for Student Pass processing are strictly *based on ICA availability*. \n You will receive email from STP Formalities stpformalities-singapore@jcu.edu.au, with specific details regarding your appointment. "
+    },
+    {
+        "topic":"campus and singapore exploration",
+        "keywords":["exploration","singapore"],
+        "information":"On the 14th of January 2025, Report to JCU by 1:30pm, Campus Exploration from 2:00pm to 3:00pm.Followed with fun activities from 3:00pm to 5:30pm at the Marina Bay Sands.\nSign up <a href='https://jcu.syd1.qualtrics.com/jfe/form/SV_8v8bsrVsafm9Lwy'>here by 3rd January 2025. *Limited* slots only. \n Please remeber to fill up the Indemnity Form at registration on the day of. New students who haven't collected their new student T-shirt will be given one before start of activity. \n  More details will be sent via *your official JCU email address* </a>"
     },
     {
         "topic": "part-time programs",
