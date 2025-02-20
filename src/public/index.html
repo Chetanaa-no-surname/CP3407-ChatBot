@@ -1,22 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-wdith, initial-scale=1.0">
-        <title>ChatBot</title>
-        <link rel="stylesheet" href="/style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCU Singapore - Authentic Conversations</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        function toggleSearch() {
+            var searchBox = document.getElementById("search-box");
+            if (searchBox.style.display === "none" || searchBox.style.display === "") {
+                searchBox.style.display = "block";
+            } else {
+                searchBox.style.display = "none";
+            }
+        }  
+    </script>
+</head>
+<body>
 
-    <body>
-        <div>
-            <input type="text" id="messageInput" placeholder="Type your message here"/>
-            <button id='sendButton' onclick="sendMessage()">
-                <img src="/images/send.svg" alt="Send" style="width: 100px; height: auto;"/>
-            </button>
+    <!-- Thin Top Navigation -->
+    <div class="top-nav-thin">
+        <ul>
+            <li><a href="#">Staff</a></li>
+            <li><a href="#">Alumni</a></li>
+            <li><a href="#">Library</a></li>
+            <li><a href="#">LearnJCU</a></li>
+            <li><a href="#">Campus Maps</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Navigation -->
+    <header>
+        <div class="top-nav">
+            <div class="logo">
+                <img src="jcu-logo.png" alt="JCU Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Study at JCU</a></li>
+                    <li><a href="#">Current Students</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <button onclick="toggleSearch()">🔍</button>
+                <input type="text" id="search-box" placeholder="Search..." style="display: none;">
+            </div>
         </div>
+    </header>
 
-        <div id="responseDiv"></div>
-    </body>
+    <!-- Main Content with Background Image -->
+    <div class="main-content">
+        <section class="red-box">
+            <div class="red-box-left">
+                <h1>Authentic Conversations</h1>
+                <a href="#" class="learn-more">Learn More ></a>
+            </div>
+        </section>
 
-    <script src="script.js"></script>
+        <!-- Empty Profile Section for Future Use -->
+        <section class="profile-section"></section>
+    </div>
+
+    <!-- Bottom Menu -->
+    <div class="bottom-menu">
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+        <div class="menu-links">
+            <a href="#">Undergraduate</a>
+            <a href="#">Postgraduate</a>
+            <a href="#">Pathway</a>
+        </div>
+    </div>
+
+    <div class="chatbox">
+        <div class="chat-header">
+            <div class="chat-logo">
+                <img src="jcu-logo.png" alt="JCU Logo">
+            </div>
+            <span>Ask JCU</span>
+            <button class="chat-toggle">↗</button>
+        </div>
+        <div class="chat-messages">
+            <div class="message received">Hello! How can I help you?</div>
+            <div class="message sent">I need assistance with admissions.</div>
+            <div class="message received">Sure! What would you like to know?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" placeholder="Type your question here...">
+            <button>➤</button>
+        </div>
+    </div>
+    
+
+    <footer>
+        <p>© 2025 James Cook University Singapore</p>
+    </footer>
+
+</body>
+
+<script>
+    document.addEventListener('scroll', () => {
+        const header = document.querySelector('header')
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
+
+
+
+
+<script>
+    document.querySelector('.chat-toggle').addEventListener('click', function () {
+        const chatbox = document.querySelector('.chatbox');
+        if (chatbox.style.display === "none" || chatbox.style.display === "") {
+            chatbox.style.display = "flex"; // Show chatbox
+        } else {
+            chatbox.style.display = "none"; // Hide chatbox
+        }
+    });
+</script>
+
+
 </html>
