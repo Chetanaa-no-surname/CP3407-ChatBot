@@ -99,19 +99,30 @@
         <p>© 2025 James Cook University Singapore</p>
     </footer>
 
+
+<!-- Floating Chat Button -->
+<button class="chat-float-btn" id="chatButton" onclick="toggleChatbox()">
+    <img src="jcu-logo.png" alt="Chat with JCU">
+  </button>
+  
+  <!-- Chatbox (Initially Hidden) -->
+  <div class="chatbox" id="chatbox">
+    <div class="chat-header">
+      <div class="chat-logo">
+        <img src="jcu-logo.png" alt="JCU Logo">
+      </div>
+      <span>Ask JCU</span>
+      <button class="chat-toggle" onclick="toggleChatbox()">×</button>
+    </div>
+    <div class="chat-messages">
+      <div class="message received">Hello! How can I help you?</div>
+      <div class="message sent">I need assistance with admissions.</div>
+      <div class="message received">Sure! What would you like to know?</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" placeholder="Type your question here...">
+      <button>➤</button>
+    </div>
+  </div>
 </body>
-
-
-<script>
-    document.querySelector('.chat-toggle').addEventListener('click', function () {
-        const chatbox = document.querySelector('.chatbox');
-        if (chatbox.style.display === "none" || chatbox.style.display === "") {
-            chatbox.style.display = "flex"; // Show chatbox
-        } else {
-            chatbox.style.display = "none"; // Hide chatbox
-        }
-    });
-</script>
-
-
 </html>

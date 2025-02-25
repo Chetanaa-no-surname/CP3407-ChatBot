@@ -42,3 +42,18 @@ async function sendMessage() {
         });
 
 };
+
+
+function toggleChatbox() {
+    const chatbox = document.getElementById('chatbox');
+    const chatButton = document.getElementById('chatButton');
+  
+    if (chatbox.style.display === "none" || chatbox.style.display === "") {
+      chatbox.style.display = "flex";  // Show chatbox
+      chatButton.style.display = "none";  // Hide button
+    } else {
+      chatbox.style.display = "none";  // Hide chatbox
+      chatButton.style.display = "flex";  // Show button
+    }
+};
+
