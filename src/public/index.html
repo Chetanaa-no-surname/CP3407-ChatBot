@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +15,10 @@
             } else {
                 searchBox.style.display = "none";
             }
-        }  
+        }
     </script>
 </head>
+
 <body>
 
     <!-- Thin Top Navigation -->
@@ -75,54 +77,37 @@
         </div>
     </div>
 
-    <div class="chatbox">
-        <div class="chat-header">
-            <div class="chat-logo">
-                <img src="/static/images/jcu-logo.png" alt="JCU Logo">
-            </div>
-            <span>Ask JCU</span>
-            <button class="chat-toggle">↗</button>
-        </div>
-        <div class="chat-messages">
-            <div class="message received">Hello! How can I help you?</div>
-            <div class="message sent">I need assistance with admissions.</div>
-            <div class="message received">Sure! What would you like to know?</div>
-        </div>
-        <div class="chat-input">
-            <input type="text" placeholder="Type your question here...">
-            <button>➤</button>
-        </div>
-    </div>
-    
-
     <footer>
         <p>© 2025 James Cook University Singapore</p>
     </footer>
 
 
-<!-- Floating Chat Button -->
-<button class="chat-float-btn" id="chatButton" onclick="toggleChatbox()">
-    <img src="jcu-logo.png" alt="Chat with JCU">
-  </button>
-  
-  <!-- Chatbox (Initially Hidden) -->
-  <div class="chatbox" id="chatbox">
-    <div class="chat-header">
-      <div class="chat-logo">
-        <img src="jcu-logo.png" alt="JCU Logo">
-      </div>
-      <span>Ask JCU</span>
-      <button class="chat-toggle" onclick="toggleChatbox()">×</button>
+    <!-- Floating Chat Button -->
+    <button class="chat-float-btn" id="chatButton" onclick="toggleChatbox()">
+        <img src="/static/images/jcu-logo.png" alt="Chat with JCU">
+    </button>
+
+    <!-- Chatbox (Initially Hidden) -->
+    <div class="chatbox" id="chatbox">
+        <div class="chat-header">
+            <div class="chat-logo">
+                <img src="/static/images/jcu-logo.png" alt="JCU Logo">
+            </div>
+            <span>Ask JCU</span>
+            <button class="chat-toggle" onclick="toggleChatbox()">×</button>
+        </div>
+        <div class="chat-messages" id="responseDiv">
+            <div class="message received">Hello! How can I help you?</div>
+            <div class="message sent">I need assistance with admissions.</div>
+            <div class="message received">Sure! What would you like to know?</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type your question here...">
+            <button id="sendButton" onclick="sendMessage()">➤</button>
+        </div>
     </div>
-    <div class="chat-messages">
-      <div class="message received">Hello! How can I help you?</div>
-      <div class="message sent">I need assistance with admissions.</div>
-      <div class="message received">Sure! What would you like to know?</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" placeholder="Type your question here...">
-      <button>➤</button>
-    </div>
-  </div>
 </body>
+
+<script src="script.js"></script>
+
 </html>

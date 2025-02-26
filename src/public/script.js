@@ -10,6 +10,7 @@ async function sendMessage() {
     const userInput = messageInput.value;
 
     const newMesDiv = document.createElement('div');
+    newMesDiv.classList.add('message', 'sent');
     newMesDiv.textContent = userInput;
 
     const parentDiv = document.getElementById('responseDiv');
@@ -35,6 +36,7 @@ async function sendMessage() {
             newResDiv.textContent = data.message;
 
             const parentDiv = document.getElementById('responseDiv');
+            newResDiv.classList.add('message', 'received');
             parentDiv.appendChild(newResDiv);
         })
         .catch(err => {
