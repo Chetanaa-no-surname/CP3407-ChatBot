@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JCU Singapore - Authentic Conversations</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="../static/style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
         function toggleSearch() {
@@ -36,7 +36,7 @@
     <header>
         <div class="top-nav">
             <div class="logo">
-                <img src="/static/images/jcu-logo.png" alt="JCU Logo">
+                <img src="../static/images/jcu-logo.png" alt="JCU Logo">
             </div>
             <nav>
                 <ul>
@@ -47,7 +47,9 @@
                 </ul>
             </nav>
             <div class="search-bar">
-                <button onclick="toggleSearch()">🔍</button>
+                <button onclick="toggleSearch()">
+                    <img src="../static/images/search.svg" alt="Search">
+                </button>
                 <input type="text" id="search-box" placeholder="Search..." style="display: none;">
             </div>
         </div>
@@ -84,14 +86,14 @@
 
     <!-- Floating Chat Button -->
     <button class="chat-float-btn" id="chatButton" onclick="toggleChatbox()">
-        <img src="/static/images/jcu-logo.png" alt="Chat with JCU">
+        <img src="../static/images/jcu-logo1.png" alt="Chat with JCU">
     </button>
 
     <!-- Chatbox (Initially Hidden) -->
     <div class="chatbox" id="chatbox">
         <div class="chat-header">
             <div class="chat-logo">
-                <img src="/static/images/jcu-logo.png" alt="JCU Logo">
+                <img src="../static/images/jcu-logo1.png" alt="JCU Logo">
             </div>
             <span>Ask JCU</span>
             <button class="chat-toggle" onclick="toggleChatbox()">×</button>
