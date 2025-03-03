@@ -15,6 +15,7 @@ async function sendMessage() {
 
     const parentDiv = document.getElementById('responseDiv');
     parentDiv.appendChild(newMesDiv);
+    parentDiv.scrollTop = parentDiv.scrollHeight;
 
     messageInput.value = '';
     
@@ -38,6 +39,7 @@ async function sendMessage() {
             const parentDiv = document.getElementById('responseDiv');
             newResDiv.classList.add('message', 'received');
             parentDiv.appendChild(newResDiv);
+            parentDiv.scrollTop = parentDiv.scrollHeight;
         })
         .catch(err => {
             console.error(err);
