@@ -3,6 +3,8 @@ const OpenAI = require('openai');
 const fs = require('fs');
 require('dotenv').config({ path: '../.env'});
 
+const history = require('./history.js'); // Import history
+
 const openai = new OpenAI({
     apiKey: process.env.API_KEY
 });
@@ -38,12 +40,9 @@ const openAiCaller = async (req, res) => {
         messages: [
             {
                 role: 'system',
-                content: 'You are an orientation guide for new students joining James Cook University Singapore. Your role is to answer questions and provide information exclusively related to university orientation and related matters. Only provide information from https://www.jcu.edu.sg/ or already known information. In cases where there is insufficient information or questions that are unrelated to orientation, inform the user that their question is outside your scope, or politely request for them to rephrase and guide them back to the relevant topic. Keep your response clear and concise.'
+                content: `You are an orientation guide for new students joining James Cook University Singapore. Your role is to answer questions and provide information exclusively related to university orientation and related matters. Only provide information from https://www.jcu.edu.sg/ or already known information ${prompt}. In cases where there is insufficient information or questions that are unrelated to orientation, inform the user that their question is outside your scope, or politely request for them to rephrase and guide them back to the relevant topic. Keep your response clear and concise.`
             },
-            {
-                role: 'assistant',
-                content: prompt
-            },
+            ...history.chatHistory, // Include past chat history
             {
                 role: 'user',
                 content: userInput
@@ -51,14 +50,18 @@ const openAiCaller = async (req, res) => {
         ],
         model: 'gpt-4o-mini',
     })
-        .then (response => {
-            res.json({ message: response.choices[0].message.content.trim() });
-        })
-        .catch (err => {
-            console.error(err);
-            res.status(500).send('server error');
-        });
+    .then(response => {
+        const botResponse = response.choices[0].message.content.trim();
 
+        // Store conversation in history
+        history.addToHistory(userInput, botResponse);
+
+        res.json({ message: botResponse, history: history.chatHistory });
+    })
+    .catch(err => {
+        console.error(err);
+        res.status(500).send('Server error');
+    });
 };
 
-exports.caller = openAiCaller;
+module.exports = { caller: openAiCaller };

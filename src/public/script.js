@@ -47,6 +47,29 @@ async function sendMessage() {
 
 };
 
+// Function to load chat history on page load
+async function loadHistory() {
+    const parentDiv = document.getElementById('responseDiv');
+
+    await fetch('http://localhost:3000/getHistory')
+        .then(res => res.json())
+        .then(data => {
+            data.history.forEach(entry => {
+                const newDiv = document.createElement('div');
+                newDiv.textContent = entry.content;
+                newDiv.classList.add('message', entry.role === 'user' ? 'sent' : 'received');
+                parentDiv.appendChild(newDiv);
+            });
+            parentDiv.scrollTop = parentDiv.scrollHeight;
+        })
+        .catch(err => {
+            console.error('Error loading chat history:', err);
+        });
+}
+
+// Load chat history when the chatbox opens
+document.addEventListener('DOMContentLoaded', loadHistory);
+
 
 function toggleChatbox() {
     const chatbox = document.getElementById('chatbox');

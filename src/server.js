@@ -12,7 +12,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 
 const openAi = require('./models/openai.js');
+const history = require('./models/history.js');
 app.post('/', openAi.caller);
+app.get('/getHistory', history.getHistory); // Route to get history
 
 app.listen(port, () => {
     console.log(`server is running on port ${port}`);
