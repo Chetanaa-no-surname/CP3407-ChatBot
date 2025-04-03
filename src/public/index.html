@@ -126,7 +126,6 @@
         <img src="../static/images/jcu-logo1.png" alt="Chat with JCU">
     </button>
 
-    <!-- Chatbox (Initially Hidden) -->
     <div class="chatbox" id="chatbox">
         <div class="chat-header">
             <div class="chat-logo">
@@ -135,16 +134,22 @@
             <span>Ask JCU</span>
             <button class="chat-toggle" onclick="toggleChatbox()">×</button>
         </div>
+    
         <div class="chat-messages" id="responseDiv">
             <div class="message received">Hello! How can I help you?</div>
-            <div class="message sent">I need assistance with admissions.</div>
-            <div class="message received">Sure! What would you like to know?</div>
         </div>
+
+        <div id="suggestions">
+            
+        </div>
+
+        <!-- Only one input box -->
         <div class="chat-input">
             <input type="text" id="messageInput" placeholder="Type your question here...">
             <button id="sendButton" onclick="sendMessage()">➤</button>
         </div>
     </div>
+    
 </body>
 
 <script src="script.js"></script>

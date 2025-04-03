@@ -452,3 +452,30 @@ header {
 
   
   
+/* Suggestions container - now a vertical column */
+.suggestions-container {
+  display: flex;
+  flex-direction: column;     /* Make it vertical */
+  gap: 8px;                   /* Space between buttons */
+  margin: 10px 0 0 15px;      /* Slight left indent for alignment */
+  padding: 0;
+  background: none;           /* No background */
+}
+
+/* Suggested buttons - clean blue style */
+.suggestions-container button {
+  background-color: #007BFF;  /* Blue */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  text-align: left;
+  width: fit-content;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.suggestions-container button:hover {
+  background-color: #0056b3;  /* Darker blue */
+}

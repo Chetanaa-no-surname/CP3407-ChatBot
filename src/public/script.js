@@ -9,6 +9,8 @@ async function sendMessage() {
     const messageInput = document.getElementById('messageInput');
     const userInput = messageInput.value;
 
+    if (!userInput.trim())return;
+
     const newMesDiv = document.createElement('div');
     newMesDiv.classList.add('message', 'sent');
     newMesDiv.textContent = userInput;
@@ -18,6 +20,7 @@ async function sendMessage() {
     parentDiv.scrollTop = parentDiv.scrollHeight;
 
     messageInput.value = '';
+    document.getElementById('suggestions').innerHTML = '';
     
     await fetch(`http://localhost:3000`, {
         method: 'POST',
@@ -40,6 +43,26 @@ async function sendMessage() {
             newResDiv.classList.add('message', 'received');
             parentDiv.appendChild(newResDiv);
             parentDiv.scrollTop = parentDiv.scrollHeight;
+            
+            const suggestionsDiv = document.createElement('div');
+            suggestionsDiv.classList.add('suggestions-container');
+
+            fetch('http://localhost:3000/suggestedQn')
+                .then(res => res.json())
+                .then(suggestionData => {
+                    suggestionData.suggestions.forEach(question => {
+                        const btn = document.createElement('button');
+                        btn.textContent = question;
+                        btn.onclick = () => {
+                            document.getElementById('messageInput').value = question;
+                            suggestionsDiv.remove(); // remove after click
+                        };
+                        suggestionsDiv.appendChild(btn);
+                    });
+                });
+            
+            parentDiv.appendChild(suggestionsDiv);
+        
         })
         .catch(err => {
             console.error(err);
@@ -51,24 +74,35 @@ async function sendMessage() {
 async function loadHistory() {
     const parentDiv = document.getElementById('responseDiv');
 
-    await fetch('http://localhost:3000/getHistory')
-        .then(res => res.json())
-        .then(data => {
-            data.history.forEach(entry => {
-                const newDiv = document.createElement('div');
-                newDiv.textContent = entry.content;
-                newDiv.classList.add('message', entry.role === 'user' ? 'sent' : 'received');
-                parentDiv.appendChild(newDiv);
-            });
-            parentDiv.scrollTop = parentDiv.scrollHeight;
-        })
-        .catch(err => {
-            console.error('Error loading chat history:', err);
+    try {
+        const res = await fetch('http://localhost:3000/getHistory');
+        const data = await res.json();
+
+        // Display chat messages
+        data.history.forEach(entry => {
+            const newDiv = document.createElement('div');
+            newDiv.textContent = entry.content;
+            newDiv.classList.add('message', entry.role === 'user' ? 'sent' : 'received');
+            parentDiv.appendChild(newDiv);
         });
+
+        //Check if last message was from assistant
+        if (
+            data.history.length > 0 &&
+            data.history[data.history.length - 1].role === 'assistant'
+        ) {
+            await appendSuggestions(parentDiv); // inject suggestions after last bot reply
+        }
+
+        parentDiv.scrollTop = parentDiv.scrollHeight;
+
+    } catch (err) {
+        console.error('Error loading chat history:', err);
+    }
 }
 
-// Load chat history when the chatbox opens
-document.addEventListener('DOMContentLoaded', loadHistory);
+
+document.addEventListener('DOMContentLoaded', loadHistory, loadSuggestions);
 
 
 function toggleChatbox() {
@@ -83,4 +117,33 @@ function toggleChatbox() {
       chatButton.style.display = "flex";  // Show button
     }
 };
+
+async function loadSuggestions() {
+    const parentDiv = document.getElementById('responseDiv')
+    try {
+        const res = await fetch('http://localhost:3000/suggestedQn');
+        const data = await res.json();
+        const suggestions = data.suggestions;
+
+        const suggestionDiv = document.getElementById('suggestions');
+        suggestionDiv.innerHTML = ''; // Clear previous suggestions
+
+        suggestions.forEach((question) => {
+            const btn = document.createElement('button');
+            btn.textContent = question;
+            btn.className = 'suggestion-btn';
+
+            btn.onclick = () => {
+                document.getElementById('messageInput').value = question;
+                suggestionDiv.innerHTML = ''; // Remove suggestions after selection
+            };
+
+            suggestionDiv.appendChild(btn);
+            parentDiv.scrollTop = parentDiv.scrollHeight; 
+        });
+    } catch (err) {
+        console.error('Error loading suggested questions:', err);
+    }
+}
+
 
