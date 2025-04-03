@@ -5,7 +5,26 @@ document.getElementById('messageInput').addEventListener('keydown', function(eve
     };
 });
 
+
+function toggleSearch() {
+    var searchBox = document.getElementById("search-box");
+    if (searchBox.style.display === "none" || searchBox.style.display === "") {
+        searchBox.style.display = "block";
+    } else {
+        searchBox.style.display = "none";
+    }
+}
+function toggleHamburgerMenu() {
+    const menu = document.getElementById("hamburgerMenu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+
 async function sendMessage() {
+    const suggestDiv = document.getElementById('suggestions');
+    if (suggestDiv) {
+        suggestDiv.remove()
+    }
     const messageInput = document.getElementById('messageInput');
     const userInput = messageInput.value;
 
@@ -20,7 +39,6 @@ async function sendMessage() {
     parentDiv.scrollTop = parentDiv.scrollHeight;
 
     messageInput.value = '';
-    // document.getElementById('suggestions').innerHTML = '';
     
     await fetch(`http://localhost:3000`, {
         method: 'POST',
@@ -53,11 +71,7 @@ async function sendMessage() {
                     suggestionData.suggestions.forEach(question => {
                         const btn = document.createElement('button');
                         btn.textContent = question;
-                        // btn.onclick = () => {
-                        //     document.getElementById('messageInput').value = question;
-                        //     suggestionsDiv.remove(); // remove after click
-                        // };
-                        btn.addEventListener('click', () => {
+                        btn.addEventListener('click', function() {
                             document.getElementById('messageInput').value = this.textContent;
                             document.getElementById('sendButton').click();
                             document.getElementById('suggestions').remove();
@@ -67,12 +81,13 @@ async function sendMessage() {
                 });
             
             parentDiv.appendChild(suggestionsDiv);
-            parentDiv.scrollTop = parentDiv.scrollHeight;
         
         })
         .catch(err => {
             console.error(err);
         });
+    
+        parentDiv.scrollTop = parentDiv.scrollHeight;    
 
 };
 
@@ -97,10 +112,12 @@ async function loadHistory() {
             data.history.length > 0 &&
             data.history[data.history.length - 1].role === 'assistant'
         ) {
-            await appendSuggestions(parentDiv); // inject suggestions after last bot reply
+            await loadSuggestions(); // inject suggestions after last bot reply
         }
 
-        parentDiv.scrollTop = parentDiv.scrollHeight;
+        setTimeout(() => {
+            parentDiv.scrollTop = parentDiv.scrollHeight;
+        }, 0);
 
     } catch (err) {
         console.error('Error loading chat history:', err);
@@ -125,6 +142,7 @@ function toggleChatbox() {
 };
 
 async function loadSuggestions() {
+    console.log('loading suggeestions')
     const parentDiv = document.getElementById('responseDiv');
     try {
         const res = await fetch('http://localhost:3000/suggestedQn');
@@ -139,13 +157,7 @@ async function loadSuggestions() {
             const btn = document.createElement('button');
             btn.textContent = question;
             btn.className = 'suggestion-btn';
-
-            // btn.onclick = () => {
-            //     document.getElementById('messageInput').value = question;
-            //     suggestionDiv.innerHTML = ''; // Remove suggestions after selection
-            // };
-
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', function() {
                 document.getElementById('messageInput').value = this.textContent;
                 document.getElementById('sendButton').click();
                 document.getElementById('suggestions').remove();
