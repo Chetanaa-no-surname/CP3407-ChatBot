@@ -20,7 +20,7 @@ async function sendMessage() {
     parentDiv.scrollTop = parentDiv.scrollHeight;
 
     messageInput.value = '';
-    document.getElementById('suggestions').innerHTML = '';
+    // document.getElementById('suggestions').innerHTML = '';
     
     await fetch(`http://localhost:3000`, {
         method: 'POST',
@@ -42,10 +42,10 @@ async function sendMessage() {
             const parentDiv = document.getElementById('responseDiv');
             newResDiv.classList.add('message', 'received');
             parentDiv.appendChild(newResDiv);
-            parentDiv.scrollTop = parentDiv.scrollHeight;
             
             const suggestionsDiv = document.createElement('div');
             suggestionsDiv.classList.add('suggestions-container');
+            suggestionsDiv.id = 'suggestions'
 
             fetch('http://localhost:3000/suggestedQn')
                 .then(res => res.json())
@@ -53,15 +53,21 @@ async function sendMessage() {
                     suggestionData.suggestions.forEach(question => {
                         const btn = document.createElement('button');
                         btn.textContent = question;
-                        btn.onclick = () => {
-                            document.getElementById('messageInput').value = question;
-                            suggestionsDiv.remove(); // remove after click
-                        };
+                        // btn.onclick = () => {
+                        //     document.getElementById('messageInput').value = question;
+                        //     suggestionsDiv.remove(); // remove after click
+                        // };
+                        btn.addEventListener('click', () => {
+                            document.getElementById('messageInput').value = this.textContent;
+                            document.getElementById('sendButton').click();
+                            document.getElementById('suggestions').remove();
+                        });
                         suggestionsDiv.appendChild(btn);
                     });
                 });
             
             parentDiv.appendChild(suggestionsDiv);
+            parentDiv.scrollTop = parentDiv.scrollHeight;
         
         })
         .catch(err => {
@@ -119,28 +125,37 @@ function toggleChatbox() {
 };
 
 async function loadSuggestions() {
-    const parentDiv = document.getElementById('responseDiv')
+    const parentDiv = document.getElementById('responseDiv');
     try {
         const res = await fetch('http://localhost:3000/suggestedQn');
         const data = await res.json();
         const suggestions = data.suggestions;
 
-        const suggestionDiv = document.getElementById('suggestions');
-        suggestionDiv.innerHTML = ''; // Clear previous suggestions
+        const suggestionsDiv = document.createElement('div');
+        suggestionsDiv.classList.add('suggestions-container');
+        suggestionsDiv.id = 'suggestions';
 
         suggestions.forEach((question) => {
             const btn = document.createElement('button');
             btn.textContent = question;
             btn.className = 'suggestion-btn';
 
-            btn.onclick = () => {
-                document.getElementById('messageInput').value = question;
-                suggestionDiv.innerHTML = ''; // Remove suggestions after selection
-            };
+            // btn.onclick = () => {
+            //     document.getElementById('messageInput').value = question;
+            //     suggestionDiv.innerHTML = ''; // Remove suggestions after selection
+            // };
 
-            suggestionDiv.appendChild(btn);
-            parentDiv.scrollTop = parentDiv.scrollHeight; 
+            btn.addEventListener('click', () => {
+                document.getElementById('messageInput').value = this.textContent;
+                document.getElementById('sendButton').click();
+                document.getElementById('suggestions').remove();
+            });
+
+            suggestionsDiv.appendChild(btn);
         });
+        
+        parentDiv.appendChild(suggestionsDiv);
+        parentDiv.scrollTop = parentDiv.scrollHeight; 
     } catch (err) {
         console.error('Error loading suggested questions:', err);
     }
