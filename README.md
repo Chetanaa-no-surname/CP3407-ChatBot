@@ -32,7 +32,7 @@ Welcome to the repository for the JCU Orientation Chatbot, an interactive chatbo
 <img src="src/static/images/Database diagram.png" alt="Database Diagram" width="600" height="400">
 
 
-### Interfact Design 
+### Interface Design 
 Figma link: https://www.figma.com/design/BGEPXBb8GCTDC5aP8mm0oy/CP3407---ChatBot?node-id=0-1&t=8VRnPmGRHFEjSC7x-1
 
 <img src="src/static/images/Full page design.png" alt="Full Figma Design" width="700" height="400">
