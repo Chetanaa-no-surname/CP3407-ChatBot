@@ -56,5 +56,5 @@ function getSuggestions(req, res) {
     res.json({ suggestions: randomThree });
 }
 
-module.exports = {addToHistory, getHistory, chatHistory, getSuggestions};
+module.exports = {addToHistory, getHistory, chatHistory, getSuggestions, suggestedQuestions};
 
