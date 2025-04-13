@@ -118,6 +118,16 @@ header {
     margin-left: -100px;
 }
 
+/* Hidden Mobile Navigation */
+.mobile {
+	display: block;
+}
+
+/* Hidden Hamburger Menu */
+.hamburger-menu-content {
+    display: none;
+}
+
 /* Hero Section */
 .red-box {
     display: flex;
@@ -141,7 +151,7 @@ header {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.2);
+    background: #ffffff33;
     padding: 10px 20px;
     border-radius: 5px;
 }
@@ -333,23 +343,139 @@ header {
     border: none;
     cursor: pointer;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 480px) {
-    .chatbox {
-      width: 95%;
-      height: 450px;
-      right: 2.5%;
-    }
-  
-    .chat-logo {
-      width: 40px;
-      height: 40px;
-    }
-  
-    .chat-logo img {
-      width: 35px;
-      height: 35px;
-    }
+
+@media (max-width: 780px) {
+  /* Hide desktop navigation */
+  .top-nav,
+  .top-nav-thin {
+    display: none;
   }
+
+  /* Display mobile-nav */
+  .mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+  }
+
+  .mobile-nav .logo img {
+    height: 70px;
+  }
+
+  .mobile-search {
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-nav .menu-icon {
+    font-size: 30px;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+
+  .main-content {
+    padding-top: 80px;
+  }
+
+  /* Hidden Hamburger Menu Initially */
+  .hamburger-menu-content {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 999;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  /* Hamburger Menu Links */
+  .mobile-menu-nav a,
+  .mobile-menu-topnav-thin a {
+    display: block;
+    padding: 10px ;
+    color: #5c5b5b;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid #f5f5f5;
+  }
+
+  .mobile-menu-nav a:hover,
+  .mobile-menu-topnav-thin a:hover {
+    background-color: #f5f5f5;
+  }
+
+  /* Search Bar */
+  .mobile-menu-search {
+    display: flex;
+    margin: 20px 0;
+  }
+
+  .mobile-menu-search input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+  }
+
+  .mobile-menu-search button {
+    padding: 10px 15px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .chatbox {
+    width: 95%;
+    height: 450px;
+    right: 2.5%;
+  }
+
+  .chat-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .chat-logo img {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+
+
   
+  
+/* Suggestions container - now a vertical column */
+.suggestions-container {
+  display: flex;
+  flex-direction: column;     /* Make it vertical */
+  gap: 8px;                   /* Space between buttons */
+  margin: 10px 0 0 15px;      /* Slight left indent for alignment */
+  padding: 0;
+  background: none;           /* No background */
+}
+
+/* Suggested buttons - clean blue style */
+.suggestions-container button {
+  background-color: #007BFF;  /* Blue */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  text-align: left;
+  width: fit-content;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.suggestions-container button:hover {
+  background-color: #0056b3;  /* Darker blue */
+}
